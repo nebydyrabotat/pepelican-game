@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PEPELICAN — Гра</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #07111f;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .game {
+            width: 100%;
+            max-width: 900px;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 58px;
+            margin: 0 0 10px;
+            color: #35d0ff;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            color: #aebbd0;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .pelican {
+            font-size: 130px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        .pelican:hover {
+            transform: scale(1.08);
+        }
+
+        .pelican:active {
+            transform: scale(0.92);
+        }
+
+        button {
+            border: none;
+            border-radius: 14px;
+            padding: 16px 35px;
+            font-size: 19px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #35d0ff;
+            color: #07111f;
+            transition: 0.15s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #62dcff;
+        }
+
+        .score-box {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 16px;
+            background: #101d30;
+            border: 1px solid #233752;
+        }
+
+        .score-title {
+            color: #aebbd0;
+            font-size: 16px;
+        }
+
+        #score {
+            margin-top: 5px;
+            font-size: 38px;
+            font-weight: bold;
+            color: #35d0ff;
+        }
+
+        .message {
+            margin-top: 20px;
+            color: #7f91aa;
+            font-size: 15px;
+        }
+
+        footer {
+            margin-top: 35px;
+            color: #52647d;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="game">
+
+        <h1>PEPELICAN</h1>
+
+        <div class="subtitle">
+            Ласкаво просимо у світ PEPELICAN 🦩
+        </div>
+
+        <div
+            class="pelican"
+            onclick="catchPelican()"
+            title="Натисни на пелікана!"
+        >
+            🦩
+        </div>
+
+        <button onclick="catchPelican()">
+            ЛОВИТИ ПЕЛІКАНА
+        </button>
+
+        <div class="score-box">
+            <div class="score-title">
+                Твій рахунок
+            </div>
+
+            <div id="score">
+                0
+            </div>
+        </div>
+
+        <div class="message">
+            Натискай на пелікана та набирай очки!
+        </div>
+
+        <footer>
+            PEPELICAN © 2026
+        </footer>
+
+    </div>
+
+    <script>
+        let score = 0;
+
+        function catchPelican() {
+            score++;
+
+            document.getElementById("score").innerText = score;
+        }
+    </script>
+
+</body>
+</html>
