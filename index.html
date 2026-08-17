@@ -166,9 +166,52 @@ main::-webkit-scrollbar{display:none}
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .slot i{font-style:normal;font-size:10px;opacity:.6}
 .r0{background:#3A3A3A}.r1{background:#2C5E1C}.r2{background:#144C77}
-.r3{background:#4A1E86}.r4{background:#8A5A06}.r5{background:#8C0B49}
+.r3{background:#4A1E86}.r4{background:#8A5A06}.r5{background:#8C0B49}.r6{background:linear-gradient(135deg,#FF2E97,#29E5D0,#FFC53D);background-size:300% 300%;animation:unusual 3s ease infinite}
 .rt0{color:#C9C9C9}.rt1{color:#9BE86B}.rt2{color:#6CC8FF}
-.rt3{color:#C79BFF}.rt4{color:#FFC53D}.rt5{color:#FF6BB5}
+.rt3{color:#C79BFF}.rt4{color:#FFC53D}.rt5{color:#FF6BB5}.rt6{background:linear-gradient(90deg,#FF2E97,#FFC53D,#29E5D0,#FF2E97);background-size:300% auto;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:unusual 2.4s linear infinite}
+@keyframes unusual{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* ═══ pelicans & bosses ═══ */
+.bossrow{display:flex;gap:7px;overflow-x:auto;padding-bottom:5px;margin-bottom:9px;-webkit-overflow-scrolling:touch}
+.bossrow::-webkit-scrollbar{display:none}
+.bch{flex:0 0 auto;width:58px;text-align:center;padding:7px 3px 6px;border:var(--bd) solid var(--ink);border-radius:15px;
+  background:#0B2118;cursor:pointer;position:relative}
+.bch.on{background:linear-gradient(#2C6B2A,#17421A);box-shadow:0 0 0 2px var(--neon) inset}
+.bch.locked{opacity:.4;filter:grayscale(.7)}
+.bch .em{font-size:24px;line-height:1.2}
+.bch .nm{font-size:8px;font-family:'Bungee';margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bch .dn{position:absolute;top:3px;right:5px;font-size:10px}
+.stamwrap{margin:9px 0 2px}
+.stamlabel{font-size:9px;opacity:.6;letter-spacing:.6px;margin-bottom:3px;font-family:'Bungee'}
+.stambar{height:13px;border:2px solid var(--ink);border-radius:8px;background:#00000055;overflow:hidden}
+.stambar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),#1B9E90);box-shadow:0 0 8px var(--cyan);transition:width .3s}
+.stambar i.full{background:linear-gradient(90deg,var(--gold),var(--pink));box-shadow:0 0 10px var(--gold)}
+.actrow{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:9px}
+.actrow button{font-family:'Bungee';font-weight:400;font-size:10.5px;padding:10px 4px;border:var(--bd) solid var(--ink);
+  border-radius:13px;background:var(--panel);box-shadow:0 4px 0 var(--ink);cursor:pointer;color:var(--txt)}
+.actrow button:active:not(:disabled){transform:translateY(4px);box-shadow:0 0 0}
+.actrow button:disabled{filter:grayscale(.8);opacity:.4}
+.actrow button.a-atk{background:linear-gradient(var(--neon),var(--neon-dim));color:#06210A}
+.actrow button.a-pow{background:linear-gradient(var(--pink),#A50F63);color:#fff}
+.actrow button.a-def{background:linear-gradient(#2E6FB0,#144C77);color:#fff}
+.actrow button.a-ult{background:linear-gradient(var(--gold),var(--gold-dark));color:#2B1600}
+.trait{display:inline-block;font-size:9.5px;background:#0000004a;border:1px solid var(--line);border-radius:8px;padding:2px 6px;margin-left:4px}
+.pk{border:var(--bd) solid var(--ink);border-radius:16px;background:#0B2118;padding:9px 7px;text-align:center;cursor:pointer;position:relative}
+.pk.on{background:linear-gradient(#2C6B2A,#17421A);box-shadow:0 0 0 2px var(--neon) inset}
+.pk.locked{opacity:.55}
+.pk .em{font-size:30px;line-height:1.2}
+.pk .nm{font-family:'Bungee';font-size:9.5px;margin:4px 0 1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pk .tier{font-size:8.5px;opacity:.75;text-transform:uppercase;letter-spacing:.4px}
+.pk .pr{font-size:9.5px;opacity:.7;margin-top:2px}
+.pk .own{position:absolute;top:5px;right:7px;font-size:11px}
+.pk .lv{position:absolute;top:5px;left:7px;font-size:9px;font-family:'Bungee';opacity:.8}
+.eggrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:11px}
+.egg{border:var(--bd) solid var(--ink);border-radius:16px;background:linear-gradient(180deg,#16382A,#0D2419);padding:12px 8px;text-align:center;cursor:pointer}
+.egg .em{font-size:38px}
+.egg .nm{font-family:'Bungee';font-size:11px;margin:5px 0 2px}
+.egg .pr{font-size:10.5px;opacity:.75}
+.egg .pity{font-size:8.5px;opacity:.55;margin-top:3px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
 
 /* ═══ tabs ═══ */
 .tabs{display:flex;gap:7px;margin-bottom:11px}
@@ -424,6 +467,10 @@ nav button.dot i{display:block}
       </div>
       <div class="pane on" id="p-boss">
         <div class="card">
+          <h3>🎯 <b data-i="tab_boss"></b> <em data-i="b_pickhint" style="font-size:9px"></em></h3>
+          <div class="bossrow" id="bossrow"></div>
+        </div>
+        <div class="card">
           <h3 id="bossname">Rug Puller</h3>
           <div class="bosswrap"><div class="bossface" id="bossface">🦑</div></div>
           <div class="hpbar"><i id="bosshp"></i><span id="bosshptxt"></span></div>
@@ -444,7 +491,17 @@ nav button.dot i{display:block}
           </div>
           <div class="hpbar mine" style="margin-bottom:6px"><i id="myhp"></i><span id="myhptxt"></span></div>
           <div class="hpbar"><i id="foehp"></i><span id="foehptxt"></span></div>
+          <div class="stamwrap" id="stamwrap" style="display:none">
+            <div class="stamlabel" data-i="stam"></div>
+            <div class="stambar"><i id="stamfill"></i></div>
+          </div>
           <div class="log" id="log" style="margin-top:9px"><div class="muted" data-i="spar_note"></div></div>
+          <div class="actrow" id="actrow" style="display:none">
+            <button class="a-atk" id="aAtk">⚔️ <span data-i="a_atk"></span></button>
+            <button class="a-pow" id="aPow">💥 <span data-i="a_pow"></span></button>
+            <button class="a-def" id="aDef">🛡️ <span data-i="a_def"></span></button>
+            <button class="a-ult" id="aUlt">🌟 <span data-i="a_ult"></span></button>
+          </div>
           <button class="btn green" id="spar" style="margin-top:10px">Find opponent · ⚡15</button>
         </div>
       </div>
@@ -455,8 +512,21 @@ nav button.dot i{display:block}
       <div class="tabs">
         <button class="on" data-tab="boost" data-i="tab_boost"></button>
         <button data-tab="skins" data-i="tab_drip"></button>
+        <button data-tab="peli" data-i="tab_peli"></button>
       </div>
       <div class="pane on" id="p-boost"><div class="card"><h3>⏳ <b data-i="h_boost"></b></h3><div id="boosters"></div></div></div>
+      <div class="pane" id="p-peli">
+        <div class="card">
+          <h3>🐣 <b data-i="h_eggs"></b></h3>
+          <div class="eggrow" id="eggs"></div>
+          <div class="muted" id="peliactive"></div>
+        </div>
+        <div class="card">
+          <h3>📚 <b data-i="h_coll"></b> <em id="pelicount"></em></h3>
+          <div class="pgrid" id="pelis"></div>
+          <div class="muted" data-i="peli_note" style="margin-top:9px"></div>
+        </div>
+      </div>
       <div class="pane" id="p-skins">
         <div class="card">
           <h3>😎 <b data-i="h_drip"></b></h3>
@@ -648,7 +718,53 @@ res_fish:['Fish','Риба','Peces','Pesci','Fisch'],
 res_reed:['Reeds','Очерет','Juncos','Canne','Schilf'],
 res_mud:['Mud','Мул','Barro','Fango','Schlamm'],
 res_scrap:['Scrap','Брухт','Chatarra','Rottami','Schrott'],
-res_shard:['Shards','Осколки','Fragmentos','Frammenti','Splitter']
+res_shard:['Shards','Осколки','Fragmentos','Frammenti','Splitter'],
+res_feather:['Feathers',"Пір'їни"],
+tab_peli:['COMPANIONS','КОМПАНЬЙОНИ'],
+h_peli:['Active companion','Активний компаньйон'],
+h_eggs:['Flock Eggs',"Яйця зграї"],
+h_coll:['Collection','Колекція'],
+peli_note:['Hatch companions from eggs or buy them outright. Equip one for bonus stats plus a passive perk.',
+ 'Виводь компаньйонів з яєць або купуй напряму. Одягни одного — отримаєш бонусні стати й пасивку.'],
+peli_active:['Equipped','Одягнено'],
+peli_none:['No companion equipped','Компаньйона не одягнено'],
+btn_hatch:['Open · {0}','Відкрити · {0}'],
+egg_pity:['guaranteed {0}+ within {1} opens','гарантовано {0}+ за {1} відкриттів'],
+peli_dup:['Duplicate → +{0} 🪶','Дублікат → +{0} 🪶'],
+peli_new:['New companion!','Новий компаньйон!'],
+btn_buy:['Buy · {0}','Купити · {0}'],
+btn_equipc:['Set active','Зробити активним'],
+btn_unequipc:['Unequip','Зняти'],
+btn_lvup:['Level +{0} · 🪙 {1} · 🪶 {2}','Рівень +{0} · 🪙 {1} · 🪶 {2}'],
+perk_coin:['+{0}% coin income','+{0}% доходу монет'],
+perk_xp:['+{0}% XP gain','+{0}% досвіду'],
+perk_drop:['+{0}% loot chance','+{0}% шансу луту'],
+perk_energy:['+{0}% energy regen','+{0}% відновлення енергії'],
+perk_hq:['+{0}% HQ output','+{0}% виробітку штабу'],
+perk_bossdmg:['+{0}% damage vs bosses','+{0}% шкоди по босах'],
+perk_arenadmg:['+{0}% damage in duels','+{0}% шкоди в дуелях'],
+pr0:['Common','Звичайний'],pr1:['Uncommon','Нечастий'],pr2:['Rare','Рідкісний'],
+pr3:['Epic','Епічний'],pr4:['Legendary','Легендарний'],pr5:['Ultra Rare','Ультра-рідкісний'],
+pr6:['Unusual','Незвичайний'],
+a_atk:['Attack','Атака'],a_pow:['Power Strike','Потужний удар'],a_def:['Defend','Захист'],a_ult:['ULTIMATE!','УЛЬТА!'],
+stam:['STAMINA','ВИТРИВАЛІСТЬ'],
+t_riposte:['Riposte! Counter for {0}','Контратака у відповідь на {0}'],
+t_block:['Blocked — took only {0}','Заблоковано — лише {0}'],
+t_ultuse:['ULTIMATE! {0} true damage','УЛЬТА! {0} чистої шкоди'],
+t_notenoughst:['Not enough stamina','Замало витривалості'],
+t_foedef:['{0} braces defensively.','{0} захищається.'],
+trait_shield:['🛡 blocks the first hit','🛡 блокує перший удар'],
+trait_vamp:['🩸 heals from damage','🩸 лікується від шкоди'],
+trait_berserk:['😡 hits harder at low HP','😡 б’є сильніше при малому HP'],
+trait_swift:['⚡ sometimes strikes twice','⚡ інколи б’є двічі'],
+mis_res:['Collect {0} resources','Збери {0} ресурсів'],
+mis_egg:['Open {0} eggs','Відкрий {0} яєць'],
+mis_upg:['Upgrade gear {0}×','Покращ спорядження {0}×'],
+mis_earn:['Earn 🪙 {0} today','Заробіть 🪙 {0} сьогодні'],
+mis_boost:['Activate {0} booster','Активуй {0} бустер'],
+ad_pel:['Own {0} Epic+ companions','Май {0} епічних+ компаньйонів'],
+ad_allboss:['Defeat every boss at least once','Перемога над кожним босом хоча б раз'],
+b_pickhint:['Pick a boss — each has its own daily limit.','Обери боса — у кожного власний денний ліміт.']
 };
 let LI=0;
 function t(k,...a){ const row=L[k]; if(!row) return k; let s=row[LI]||row[0];
@@ -745,14 +861,17 @@ function drawPel(){
 const CFG={
   enMax:100, enPerMin:1, tapCap:250, offlineCapH:8,
   locations:[
-    {id:'mud',   n:'Muddy Path',      i:'🥾',c:'#2C5E1C',lvl:1, en:10,sec:30, coin:[45,85],   xp:15, drop:.12,res:{fish:[2,5],reed:[1,3],mud:[1,3]}},
-    {id:'docks', n:'Pepe Byte Docks', i:'🌃',c:'#144C77',lvl:4, en:18,sec:75, coin:[120,200], xp:32, drop:.18,res:{fish:[3,7],scrap:[1,3]}},
-    {id:'croak', n:'Croak Forest',    i:'🌲',c:'#1E5B3A',lvl:8, en:26,sec:150,coin:[240,380], xp:62, drop:.24,res:{reed:[4,8],mud:[3,6],scrap:[1,4]}},
-    {id:'liq',   n:'Liquidity Mines', i:'⛏️',c:'#4A1E86',lvl:14,en:34,sec:240,coin:[430,690], xp:110,drop:.30,res:{scrap:[4,8],shard:[1,3]}},
-    {id:'neon',  n:'Neon Marsh',      i:'💠',c:'#8C0B49',lvl:22,en:46,sec:360,coin:[800,1250],xp:210,drop:.36,res:{shard:[2,5],scrap:[5,10]}},
-    {id:'moon',  n:'Moon Beach',      i:'🚀',c:'#8A5A06',lvl:32,en:60,sec:600,coin:[1600,2500],xp:420,drop:.44,res:{shard:[5,11],scrap:[8,15]}}
+    {id:'mud',   n:'Muddy Path',      i:'🥾',c:'#2C5E1C',lvl:1, en:10,sec:30, coin:[70,130],   xp:15, drop:.14,res:{fish:[3,7],reed:[2,5],mud:[2,5]}},
+    {id:'docks', n:'Pepe Byte Docks', i:'🌃',c:'#144C77',lvl:4, en:18,sec:75, coin:[190,320], xp:32, drop:.19,res:{fish:[5,11],scrap:[2,5]}},
+    {id:'croak', n:'Croak Forest',    i:'🌲',c:'#1E5B3A',lvl:8, en:26,sec:150,coin:[380,600], xp:62, drop:.25,res:{reed:[6,12],mud:[5,10],scrap:[2,6]}},
+    {id:'liq',   n:'Liquidity Mines', i:'⛏️',c:'#4A1E86',lvl:14,en:34,sec:240,coin:[680,1080],xp:110,drop:.31,res:{scrap:[6,12],shard:[2,5]}},
+    {id:'neon',  n:'Neon Marsh',      i:'💠',c:'#8C0B49',lvl:22,en:46,sec:360,coin:[1250,1950],xp:210,drop:.37,res:{shard:[3,8],scrap:[8,16]}},
+    {id:'moon',  n:'Moon Beach',      i:'🚀',c:'#8A5A06',lvl:32,en:60,sec:600,coin:[2500,3900],xp:420,drop:.45,res:{shard:[8,17],scrap:[12,22],feather:[1,3]}},
+    {id:'vault', n:'Rug Vault',       i:'🔐',c:'#124C2E',lvl:40,en:74,sec:780,coin:[3800,5800],xp:680,drop:.5, res:{shard:[12,22],scrap:[16,28],feather:[2,5]}},
+    {id:'hole',  n:'Black Hole Bazaar',i:'🕳️',c:'#2A0B4A',lvl:48,en:92,sec:960,coin:[5800,8800],xp:1050,drop:.56,res:{shard:[18,32],feather:[4,8]}},
+    {id:'genesis',n:'Genesis Swamp',  i:'🌌',c:'#063428',lvl:58,en:115,sec:1260,coin:[8800,13200],xp:1600,drop:.62,res:{shard:[26,44],feather:[7,13]}}
   ],
-  resList:[['fish','🐟'],['reed','🌾'],['mud','🪨'],['scrap','⚙️'],['shard','💠']],
+  resList:[['fish','🐟'],['reed','🌾'],['mud','🪨'],['scrap','⚙️'],['shard','🔷'],['feather','🪶']],
   rarity:[{n:'Common',w:60,m:1,c:'r0',t:'rt0'},{n:'Uncommon',w:25,m:1.5,c:'r1',t:'rt1'},
     {n:'Rare',w:11,m:2.2,c:'r2',t:'rt2'},{n:'Epic',w:3.4,m:3.4,c:'r3',t:'rt3'},
     {n:'Legendary',w:.55,m:5.2,c:'r4',t:'rt4'},{n:'Mythic',w:.05,m:8.5,c:'r5',t:'rt5'}],
@@ -766,9 +885,14 @@ const CFG={
        {id:'atk',n:'Beak training',i:'💪',dk:'up_atk',b:280,m:1.5},
        {id:'luck',n:'Fisher eye',i:'🍀',dk:'up_luck',b:450,m:1.7},
        {id:'reg',n:'Night rest',i:'🌙',dk:'up_reg',b:800,m:1.9}],
-  hq:[{id:'dock',n:'The Dock',i:'🚤',give:'coins',base:26,cost:400,m:1.6,res:{reed:8}},
-      {id:'fishery',n:'Fish Farm',i:'🐟',give:'fish',base:5,cost:520,m:1.6,res:{mud:8}},
-      {id:'rig',n:'Neon Rig',i:'⚙️',give:'scrap',base:3,cost:900,m:1.7,res:{scrap:6}}],
+  hq:[{id:'dock',n:'The Dock',i:'🚤',give:'coins',base:40,cost:400,m:1.6,res:{reed:8}},
+      {id:'fishery',n:'Fish Farm',i:'🐟',give:'fish',base:8,cost:520,m:1.6,res:{mud:8}},
+      {id:'weir',n:'Reed Weir',i:'🌾',give:'reed',base:6,cost:650,m:1.62,res:{fish:10}},
+      {id:'mudpit',n:'Mud Pit',i:'🪨',give:'mud',base:6,cost:650,m:1.62,res:{reed:10}},
+      {id:'rig',n:'Neon Rig',i:'⚙️',give:'scrap',base:5,cost:900,m:1.7,res:{mud:14}},
+      {id:'refinery',n:'Shard Refinery',i:'🔷',give:'shard',base:2,cost:1600,m:1.75,res:{scrap:14}},
+      {id:'nest',n:'Egg Nest',i:'🪶',give:'feather',base:1,cost:2600,m:1.85,res:{shard:6}},
+      {id:'roost',n:'Flock Roost',i:'💠',give:'pts',base:.4,cost:5200,m:2,res:{shard:14,feather:6}}],
   boosters:[{id:'x2c',n:'2× Coins',i:'🪙',dk:'bd_x2c',cost:1400,cur:'coins',mins:60},
     {id:'x2x',n:'2× XP',i:'📈',dk:'bd_x2x',cost:1600,cur:'coins',mins:60},
     {id:'luk',n:'Rare Loot Boost',i:'🍀',dk:'bd_luk',cost:2200,cur:'coins',mins:60},
@@ -782,9 +906,43 @@ const CFG={
     {id:'cap',s:'headwear',n:'Degen Cap',e:'🧢',cost:2500,cur:'coins'},
     {id:'halo',s:'headwear',n:'Holy Flock',e:'😇',cost:14,cur:'pts'},
     {id:'horns',s:'headwear',n:'Rug Horns',e:'😈',cost:20,cur:'pts'}],
-  foes:[{n:'FUD Bug',e:'🐛',p:.85},{n:'Frog Trader',e:'🐸',p:.95},{n:'Paper Hands Gator',e:'🐊',p:1.05},
-    {n:'Flamingo Impostor',e:'🦩',p:1},{n:'Seagull Sniper',e:'🕊️',p:1.1},{n:'Whale Duck',e:'🦆',p:1.2},
-    {n:'Rug Minion',e:'🧟',p:1.25}],
+  foes:[{n:'FUD Bug',e:'🐛',p:.85,tr:null},{n:'Frog Trader',e:'🐸',p:.95,tr:null},
+    {n:'Paper Hands Gator',e:'🐊',p:1.05,tr:'shield'},{n:'Flamingo Impostor',e:'🦩',p:1,tr:'swift'},
+    {n:'Seagull Sniper',e:'🕊️',p:1.1,tr:'swift'},{n:'Whale Duck',e:'🦆',p:1.2,tr:'shield'},
+    {n:'Rug Minion',e:'🧟',p:1.25,tr:'vamp'},{n:'Bear Brawler',e:'🐻',p:1.35,tr:'berserk'},
+    {n:'Hacker Ghost',e:'👻',p:1.45,tr:'vamp'},{n:'Void Serpent',e:'🐍',p:1.6,tr:'berserk'}],
+  bosses:[
+    {id:'rug',n:'Rug Puller',e:'🦑',lvl:1, hpM:1,   coinM:1,   xpM:1,   pts:18,weak:'transparency',style:'FUD waves',clr:'#8C0B49'},
+    {id:'whale',n:'Whale Dumper',e:'🐋',lvl:6, hpM:1.55,coinM:1.4, xpM:1.35,pts:24,weak:'panic sells',style:'liquidity crushes',clr:'#144C77'},
+    {id:'bear',n:'Bear Market',e:'🐻',lvl:13,hpM:2.15,coinM:1.9, xpM:1.8, pts:32,weak:'diamond hands',style:'crushing dumps',clr:'#4A1E86'},
+    {id:'hacker',n:'Flash Hacker',e:'🥷',lvl:20,hpM:2.85,coinM:2.5, xpM:2.4, pts:42,weak:'cold wallets',style:'exploit combos',clr:'#1B4433'},
+    {id:'wizard',n:'Scam Wizard',e:'🧙',lvl:29,hpM:3.65,coinM:3.3, xpM:3.1, pts:55,weak:'due diligence',style:'illusion curses',clr:'#8A5A06'},
+    {id:'moonlord',n:'Moon Lord',e:'👽',lvl:40,hpM:4.6, coinM:4.3, xpM:4,   pts:72,weak:'true believers',style:'cosmic rug-pulls',clr:'#08170F'}
+  ],
+  pelicanRarity:[{dk:'pr0',w:46,m:1,   c:'r0',t:'rt0'},{dk:'pr1',w:27,m:1.35,c:'r1',t:'rt1'},
+    {dk:'pr2',w:15,m:1.85,c:'r2',t:'rt2'},{dk:'pr3',w:7,  m:2.6, c:'r3',t:'rt3'},
+    {dk:'pr4',w:3.2,m:3.7, c:'r4',t:'rt4'},{dk:'pr5',w:1.4,m:5.2, c:'r5',t:'rt5'},
+    {dk:'pr6',w:.4, m:7.5, c:'r6',t:'rt6'}],
+  pelicans:[
+    {id:'reedpeck', n:'Reed Peck',       e:'🐦',r:0,perk:{t:'coin',v:3}, buy:{cost:1200,cur:'coins'}},
+    {id:'mudwaddle',n:'Mud Waddle',      e:'🐤',r:0,perk:{t:'energy',v:3},buy:{cost:1200,cur:'coins'}},
+    {id:'dockdiver',n:'Dock Diver',      e:'🐧',r:1,perk:{t:'xp',v:5},  buy:{cost:3200,cur:'coins'}},
+    {id:'scrapsnap',n:'Scrap Snapper',   e:'🦤',r:1,perk:{t:'drop',v:5},buy:{cost:3200,cur:'coins'}},
+    {id:'neonbeak', n:'Neon Beak',       e:'🦩',r:2,perk:{t:'coin',v:8},buy:{cost:9000,cur:'coins'}},
+    {id:'shardhunt',n:'Shard Hunter',    e:'🦅',r:2,perk:{t:'hq',v:9},  buy:{cost:9000,cur:'coins'}},
+    {id:'liqlord',  n:'Liquidity Lord',  e:'🦆',r:3,perk:{t:'drop',v:12},buy:{cost:60,cur:'pts'}},
+    {id:'moonsail', n:'Moon Sailor',     e:'🚀',r:3,perk:{t:'xp',v:14}, buy:{cost:60,cur:'pts'}},
+    {id:'diamwing', n:'Diamond Wing',    e:'💎',r:4,perk:{t:'coin',v:18},buy:{cost:180,cur:'pts'}},
+    {id:'whaletame',n:'Whale Tamer',     e:'🐳',r:4,perk:{t:'bossdmg',v:20},buy:{cost:180,cur:'pts'}},
+    {id:'voidpel',  n:'Void Pelican',    e:'🌌',r:5,perk:{t:'arenadmg',v:26},buy:{cost:520,cur:'pts'}},
+    {id:'chromeslay',n:'Chrome Slayer',  e:'🛸',r:5,perk:{t:'energy',v:22},buy:{cost:520,cur:'pts'}},
+    {id:'basedgod', n:'Based Beyond',    e:'👑',r:6,perk:{t:'coin',v:35},buy:{cost:1400,cur:'pts'}},
+    {id:'ascended', n:'??? The Ascended',e:'✨',r:6,perk:{t:'bossdmg',v:38},buy:{cost:1400,cur:'pts'}}
+  ],
+  eggs:[
+    {id:'common',n:'Common Egg',i:'🥚',cur:'coins',cost:2200,tiers:[0,1,2,3],w:[46,30,18,6],pity:10,pityR:3},
+    {id:'golden',n:'Golden Egg',i:'🌟',cur:'pts',cost:45,tiers:[2,3,4,5,6],w:[34,28,20,12,6],pity:15,pityR:6}
+  ],
   achs:[
     {id:'a1',n:'First Blood',dk:['ad_farm1'],c:200,p:1,f:s=>s.farms>=1},
     {id:'a2',n:'Swamp Walker',dk:['ad_farmN',10],c:800,p:3,f:s=>s.farms>=10},
@@ -795,11 +953,18 @@ const CFG={
     {id:'a7',n:'Epic Fisher',dk:['ad_epic'],c:1500,p:6,f:s=>s.bestR>=3},
     {id:'a8',n:'We Fly Higher',dk:['ad_lvl',15],c:6000,p:18,f:s=>s.lvl>=15},
     {id:'a9',n:'Drip Check',dk:['ad_skins',4],c:2000,p:6,f:s=>s.own.length>=4},
-    {id:'a10',n:'Swamp Landlord',dk:['ad_hq',5],c:4000,p:12,f:s=>Object.values(s.hq).some(v=>v>=5)}],
+    {id:'a10',n:'Swamp Landlord',dk:['ad_hq',5],c:4000,p:12,f:s=>Object.values(s.hq).some(v=>v>=5)},
+    {id:'a11',n:'Flock Collector',dk:['ad_pel',3],c:5000,p:15,f:s=>s.peli.filter(p=>{const d=CFG.pelicans.find(x=>x.id===p.id);return d&&d.r>=3;}).length>=3},
+    {id:'a12',n:'World Boss Tour',dk:['ad_allboss'],c:9000,p:24,f:s=>CFG.bosses.every(b=>s.bossSeen.includes(b.id))}],
   missions:[{id:'m1',dk:'mis_farm',goal:3,key:'farm',c:400,p:2},
-    {id:'m2',dk:'mis_tap',goal:60,key:'tap',c:250,p:1},
-    {id:'m3',dk:'mis_hit',goal:12,key:'hit',c:600,p:4},
-    {id:'m4',dk:'mis_win',goal:2,key:'win',c:700,p:4}]
+    {id:'m2',dk:'mis_tap',goal:80,key:'tap',c:250,p:1},
+    {id:'m3',dk:'mis_hit',goal:15,key:'hit',c:650,p:4},
+    {id:'m4',dk:'mis_win',goal:3,key:'win',c:750,p:4},
+    {id:'m5',dk:'mis_res',goal:40,key:'res',c:500,p:2},
+    {id:'m6',dk:'mis_egg',goal:1,key:'egg',c:900,p:5},
+    {id:'m7',dk:'mis_upg',goal:2,key:'upg',c:500,p:3},
+    {id:'m8',dk:'mis_earn',goal:3000,key:'earn',c:600,p:3},
+    {id:'m9',dk:'mis_boost',goal:1,key:'boost',c:400,p:3}]
 };
 
 /* ══════════ 4. helpers & state ══════════ */
@@ -809,12 +974,14 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const ri=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
 const fmt=n=>{n=Math.floor(n);return n>=1e9?(n/1e9).toFixed(2)+'B':n>=1e6?(n/1e6).toFixed(2)+'M':n>=1e4?(n/1e3).toFixed(1)+'k':n.toLocaleString('en-US');};
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
-const fresh=()=>({v:3,lang:null,coins:400,pts:0,xp:0,lvl:1,en:CFG.enMax,enTs:Date.now(),
-  up:{cap:0,atk:0,luck:0,reg:0},res:{fish:0,reed:0,mud:0,scrap:0,shard:0},
+const fresh=()=>({v:4,lang:null,coins:400,pts:0,xp:0,lvl:1,en:CFG.enMax,enTs:Date.now(),
+  up:{cap:0,atk:0,luck:0,reg:0},res:{fish:0,reed:0,mud:0,scrap:0,shard:0,feather:0},
   inv:[],eq:{weapon:null,armor:null,charm:null},uid:1,
-  hq:{dock:1,fishery:0,rig:0},hqTs:Date.now(),daily:{day:0,last:''},
-  mis:{date:'',farm:0,tap:0,hit:0,win:0,got:[]},boss:{date:'',hp:0,dead:false,hits:0},
+  hq:{dock:1,fishery:0,weir:0,mudpit:0,rig:0,refinery:0,nest:0,roost:0},hqTs:Date.now(),daily:{day:0,last:''},
+  mis:{date:'',farm:0,tap:0,hit:0,win:0,res:0,egg:0,upg:0,earn:0,boost:0,got:[]},
+  boss:{},bossSel:CFG.bosses[0].id,bossSeen:[],
   buff:{},own:['shades','chain'],skin:{eyewear:'shades',headwear:null,neckwear:'chain'},
+  peli:[],pelEq:null,pelUid:1,pity:{common:0,golden:0},
   ach:[],run:null,tap:{date:'',n:0},farms:0,kills:0,wins:0,losses:0,bestR:0,rating:1000});
 let S=fresh();
 const KEY='pplk_v3';
@@ -822,17 +989,40 @@ let saveT=null;
 function save(){clearTimeout(saveT);saveT=setTimeout(()=>{const raw=JSON.stringify(S);
   try{if(TG&&TG.CloudStorage&&TG.CloudStorage.setItem){TG.CloudStorage.setItem(KEY,raw,()=>{});return;}}catch(e){}
   try{localStorage.setItem(KEY,raw);}catch(e){}},400);}
-function load(cb){const apply=raw=>{if(raw){try{const p=JSON.parse(raw);if(p&&p.v===3)S=Object.assign(fresh(),p);}catch(e){}}cb();};
+function migrate(){
+  CFG.hq.forEach(b=>{ if(S.hq[b.id]===undefined) S.hq[b.id]=0; });
+  CFG.resList.forEach(([k])=>{ if(S.res[k]===undefined) S.res[k]=0; });
+  if(!S.boss||S.boss.date!==undefined){ const old=(S.boss&&S.boss.date!==undefined)?S.boss:null; S.boss={};
+    if(old) S.boss[S.bossSel||CFG.bosses[0].id]=old; }
+  if(!S.bossSel||!CFG.bosses.some(b=>b.id===S.bossSel)) S.bossSel=CFG.bosses[0].id;
+  if(!Array.isArray(S.bossSeen)) S.bossSeen=[];
+  if(!Array.isArray(S.peli)) S.peli=[];
+  if(S.pelUid===undefined) S.pelUid=1;
+  if(S.pelEq===undefined) S.pelEq=null;
+  if(!S.pity) S.pity={common:0,golden:0};
+  if(S.pity.common===undefined) S.pity.common=0;
+  if(S.pity.golden===undefined) S.pity.golden=0;
+  S.v=4;
+}
+function load(cb){const apply=raw=>{if(raw){try{const p=JSON.parse(raw);if(p&&p.v>=3)S=Object.assign(fresh(),p);}catch(e){}}migrate();cb();};
   try{if(TG&&TG.CloudStorage&&TG.CloudStorage.getItem){TG.CloudStorage.getItem(KEY,(e,v)=>apply(e?null:v));return;}}catch(e){}
   let v=null;try{v=localStorage.getItem(KEY);}catch(e){}apply(v);}
 
 const needXp=l=>Math.floor(90*Math.pow(l,1.42));
 const enMax=()=>CFG.enMax+S.up.cap*10;
-const regRate=()=>CFG.enPerMin+S.up.reg*.3;
+const companion=()=>S.pelEq?S.peli.find(p=>p.u===S.pelEq):null;
+const pelDef=p=>p?CFG.pelicans.find(x=>x.id===p.id):null;
+function perkVal(type){const c=companion();if(!c)return 0;const d=pelDef(c);if(!d||d.perk.t!==type)return 0;
+  return d.perk.v*(1+(c.lv||0)*.08);}
+const pelStat=(p,w)=>{const d=pelDef(p);if(!d)return 0;const R=CFG.pelicanRarity[d.r];
+  const base=w==='atk'?2+d.r*2:w==='def'?1+d.r*1.4:1+d.r*.8;
+  return Math.round(base*R.m*(1+(p.lv||0)*.18));};
+const regRate=()=>(CFG.enPerMin+S.up.reg*.3)*(1+perkVal('energy')/100);
 const equipped=()=>['weapon','armor','charm'].map(k=>S.inv.find(i=>i.u===S.eq[k])).filter(Boolean);
 const itemStat=(it,w)=>Math.round(it[w]*(1+(it.lv||0)*.15));
 function stats(){let atk=9+S.lvl*2+S.up.atk*3,def=5+S.lvl+S.up.atk,luck=3+S.up.luck*2;
   equipped().forEach(i=>{atk+=itemStat(i,'a');def+=itemStat(i,'d');luck+=i.l||0;});
+  const c=companion();if(c){atk+=pelStat(c,'atk');def+=pelStat(c,'def');luck+=pelStat(c,'luck');}
   return{atk,def,luck,hp:70+S.lvl*24+def*4};}
 const buffOn=id=>(S.buff[id]||0)>Date.now();
 function regen(){const now=Date.now(),m=(now-S.enTs)/60000;if(m<=0)return;const g=m*regRate();
@@ -852,7 +1042,7 @@ function confetti(n){const cols=['#7CFF3D','#FF2E97','#FFC53D','#29E5D0','#fff']
     d.style.animationDuration=(1.4+Math.random()*1.4)+'s';d.style.animationDelay=(Math.random()*.35)+'s';
     document.body.appendChild(d);setTimeout(()=>d.remove(),3200);}}
 function flash(el){el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}
-function gain(c,p){if(c){S.coins+=Math.round(c);flash($('w-coins'));}if(p){S.pts+=p;flash($('w-pts'));}}
+function gain(c,p){if(c){c=Math.round(c*(1+perkVal('coin')/100));S.coins+=c;misReset();S.mis.earn+=c;flash($('w-coins'));}if(p){S.pts+=p;flash($('w-pts'));}}
 
 /* ══════════ 5. loot ══════════ */
 function rollR(luck){const bonus=buffOn('luk')?1.5:1;
@@ -869,7 +1059,7 @@ function itemCard(it){return `<div class="row ${CFG.rarity[it.r].c} ${it.r>=4?'s
   <div class="mid"><div class="ttl">${it.n}${it.lv?' +'+it.lv:''}</div>
   <div class="sub">${CFG.rarity[it.r].n} · +${itemStat(it,'a')} ${t('c_atk')} · +${itemStat(it,'d')} ${t('c_def')}</div></div></div>`;}
 
-function addXp(n){if(buffOn('x2x'))n*=2;S.xp+=Math.round(n);
+function addXp(n){if(buffOn('x2x'))n*=2;n*=(1+perkVal('xp')/100);S.xp+=Math.round(n);
   while(S.xp>=needXp(S.lvl)){S.xp-=needXp(S.lvl);S.lvl++;S.en=enMax();notif('success');confetti(26);
     const un=CFG.locations.find(l=>l.lvl===S.lvl);
     openModal(`<h2>${t('lvl_up',S.lvl)}</h2><div class="rays"><div class="em">🎉</div></div>
@@ -906,7 +1096,8 @@ $('pel').addEventListener('pointerdown',e=>{
   hap('light');paintTop();$('tapmeter').textContent=t('taps',S.tap.n,CFG.tapCap);save();});
 
 /* ══════════ 7. renderers ══════════ */
-function misReset(){if(S.mis.date!==today())S.mis={date:today(),farm:0,tap:0,hit:0,win:0,got:[]};}
+function misReset(){const base={date:today(),farm:0,tap:0,hit:0,win:0,res:0,egg:0,upg:0,earn:0,boost:0,got:[]};
+  if(!S.mis||S.mis.date!==today())S.mis=base;else S.mis=Object.assign({},base,S.mis);}
 function renderMis(){misReset();
   $('misdone').textContent=S.mis.got.length+'/'+CFG.missions.length;
   $('missions').innerHTML=CFG.missions.map(m=>{
@@ -924,24 +1115,30 @@ function renderAch(){
       <button class="mini ${ok&&!got?'g':''}" ${ok&&!got?'':'disabled'} data-ach="${a.id}">${got?'✓':t('btn_claim')}</button></div>`;}).join('');
   const pend=CFG.achs.some(a=>a.f(S)&&!S.ach.includes(a.id))||CFG.missions.some(m=>S.mis[m.key]>=m.goal&&!S.mis.got.includes(m.id));
   document.querySelector('nav button[data-go="home"]').classList.toggle('dot',pend);}
-const hqRate=b=>{const l=S.hq[b.id]||0;return l?b.base*l*(1+l*.12):0;};
-function hqPending(){const h=clamp((Date.now()-S.hqTs)/3600000,0,CFG.offlineCapH),out={coins:0,fish:0,scrap:0};
-  CFG.hq.forEach(b=>{out[b.give]+=hqRate(b)*h;});return{h,out};}
+const resEmoji=k=>{const r=CFG.resList.find(x=>x[0]===k);return r?r[1]:'';};
+const hqRate=b=>{const l=S.hq[b.id]||0;if(!l)return 0;const base=b.base*l*(1+l*.12);
+  return b.give==='coins'?base*(1+perkVal('coin')/100):base*(1+perkVal('hq')/100);};
+function hqPending(){const h=clamp((Date.now()-S.hqTs)/3600000,0,CFG.offlineCapH),out={};
+  CFG.hq.forEach(b=>{out[b.give]=(out[b.give]||0)+hqRate(b)*h;});return{h,out};}
+function hqSummary(out){return Object.entries(out).filter(([k,v])=>v>=1)
+  .map(([k,v])=>(k==='coins'?'🪙 '+fmt(v):k==='pts'?'💠 '+Math.floor(v):resEmoji(k)+' '+Math.floor(v))).join(' · ');}
 function renderHQ(){const{h,out}=hqPending();
-  const total=Math.floor(out.coins)+Math.floor(out.fish)+Math.floor(out.scrap);
+  const any=Object.values(out).some(v=>v>=1);
   $('nestlvl').textContent=t('hq_idle',h.toFixed(1),CFG.offlineCapH);
   $('nestbox').innerHTML=CFG.hq.map(b=>{const l=S.hq[b.id]||0,cost=Math.round(b.cost*Math.pow(b.m,l));
     const need=Object.entries(b.res).map(([k,v])=>[k,Math.round(v*Math.pow(1.5,l))]);
     const can=S.coins>=cost&&need.every(([k,v])=>S.res[k]>=v);
+    const giveLbl=b.give==='coins'?t('c_coins'):b.give==='pts'?t('c_pts'):t('res_'+b.give);
     return `<div class="row"><div class="ic" style="background:#0009">${b.i}</div>
       <div class="mid"><div class="ttl">${b.n} · LV ${l}</div>
-      <div class="sub">${l?t('hq_rate',Math.round(hqRate(b)),b.give==='coins'?t('c_coins'):t('res_'+b.give)):t('hq_notbuilt')} · ${t('hq_cost')} 🪙 ${fmt(cost)}${need.map(([k,v])=>' · '+v+' '+t('res_'+k)).join('')}</div></div>
+      <div class="sub">${l?t('hq_rate',hqRate(b)<10?hqRate(b).toFixed(1):Math.round(hqRate(b)),giveLbl):t('hq_notbuilt')} · ${t('hq_cost')} 🪙 ${fmt(cost)}${need.map(([k,v])=>' · '+v+' '+t('res_'+k)).join('')}</div></div>
       <button class="mini ${can?'g':''}" ${can?'':'disabled'} data-hq="${b.id}">${l?t('hq_up'):t('hq_build')}</button></div>`;}).join('');
-  $('collectNest').disabled=total<1;
-  $('collectNest').textContent=total<1?t('hq_none'):`${t('hq_collect')} 🪙 ${fmt(out.coins)}${out.fish>=1?' · 🐟 '+Math.floor(out.fish):''}${out.scrap>=1?' · ⚙️ '+Math.floor(out.scrap):''}`;}
+  $('collectNest').disabled=!any;
+  $('collectNest').textContent=!any?t('hq_none'):`${t('hq_collect')} ${hqSummary(out)}`;}
 $('collectNest').onclick=()=>{const{out}=hqPending();
-  if(Math.floor(out.coins)+Math.floor(out.fish)+Math.floor(out.scrap)<1)return;
-  gain(out.coins,0);S.res.fish+=Math.floor(out.fish);S.res.scrap+=Math.floor(out.scrap);
+  if(!Object.values(out).some(v=>v>=1))return;
+  Object.entries(out).forEach(([k,v])=>{ if(k==='coins')gain(v,0); else if(k==='pts')S.pts+=Math.floor(v);
+    else S.res[k]=(S.res[k]||0)+Math.floor(v); });
   S.hqTs=Date.now();hap('medium');toast(t('hq_done'));paint();};
 const upCost=u=>Math.round(u.b*Math.pow(u.m,S.up[u.id]));
 function renderUp(){$('upgrades').innerHTML=CFG.ups.map(u=>{const c=upCost(u),can=S.coins>=c;
@@ -956,10 +1153,11 @@ function renderLocs(){$('farmcount').textContent=t('runs',S.farms);
       <button class="mini ${!lock&&!busy?'g':''}" data-loc="${l.id}" ${lock||busy?'disabled':''}>${t('btn_go')}</button></div>`;}).join('');}
 function collectRun(){const l=CFG.locations.find(x=>x.id===S.run.id),st=stats();
   let coins=ri(l.coin[0],l.coin[1]);if(buffOn('x2c'))coins*=2;
-  gain(coins,0);addXp(l.xp);S.farms++;misReset();S.mis.farm++;
+  misReset();S.mis.farm++;S.farms++;
+  gain(coins,0);addXp(l.xp);
   let txt=`🪙 +${fmt(coins)} · 📈 +${l.xp} xp`;
-  for(const k in l.res){const n=ri(l.res[k][0],l.res[k][1]);if(n>0){S.res[k]+=n;txt+=` · +${n} ${t('res_'+k)}`;}}
-  let it=null;if(Math.random()<l.drop+st.luck*.004){it=makeItem(st.luck);addItem(it);}
+  for(const k in l.res){const n=ri(l.res[k][0],l.res[k][1]);if(n>0){S.res[k]=(S.res[k]||0)+n;S.mis.res+=n;txt+=` · +${n} ${t('res_'+k)}`;}}
+  let it=null;if(Math.random()<l.drop+st.luck*.004+perkVal('drop')/100){it=makeItem(st.luck);addItem(it);}
   S.run=null;hap('medium');if(it&&it.r>=3)confetti(24);
   openModal(`<h2>${t('m_done')}</h2><div class="rays"><div class="em">${l.i}</div></div>
     <p class="muted" style="text-align:center">${txt}</p>
@@ -991,35 +1189,48 @@ function itemModal(it){const on=S.eq[it.k]===it.u,maxed=(it.lv||0)>=5;
     <button class="btn pale" id="mSell" ${on?'disabled':''}>${t('btn_sell',fmt(it.s))}</button>
     <button class="btn pale" onclick="closeModal()">${t('btn_close')}</button>`);
   $('mEq').onclick=()=>{S.eq[it.k]=on?null:it.u;closeModal();hap();paint();};
-  $('mUp').onclick=()=>{if(!can)return;S.coins-=cost;S.res.scrap-=scrap;it.lv=(it.lv||0)+1;hap('heavy');closeModal();paint();};
+  $('mUp').onclick=()=>{if(!can)return;S.coins-=cost;S.res.scrap-=scrap;it.lv=(it.lv||0)+1;
+    misReset();S.mis.upg++;hap('heavy');closeModal();paint();};
   $('mSell').onclick=()=>{gain(it.s,0);S.inv=S.inv.filter(x=>x.u!==it.u);closeModal();paint();toast(t('t_sold',fmt(it.s)));};}
 
 /* ══════════ 8. boss ══════════ */
-const bossMax=()=>Math.round(420+S.lvl*260+Math.pow(S.lvl,1.8)*8);
-function bossReset(){if(S.boss.date!==today())S.boss={date:today(),hp:bossMax(),dead:false,hits:0};}
-function renderBoss(){bossReset();
-  const max=bossMax(),pct=clamp(S.boss.hp/max*100,0,100);
+const curBoss=()=>CFG.bosses.find(b=>b.id===S.bossSel)||CFG.bosses[0];
+const bossMax=b=>Math.round((420+S.lvl*260+Math.pow(S.lvl,1.8)*8)*b.hpM);
+function bossReset(id){id=id||S.bossSel;const b=CFG.bosses.find(x=>x.id===id)||CFG.bosses[0];
+  if(!S.boss[id]||S.boss[id].date!==today())S.boss[id]={date:today(),hp:bossMax(b),dead:false,hits:0};
+  return S.boss[id];}
+function renderBossRow(){$('bossrow').innerHTML=CFG.bosses.map(b=>{const lock=S.lvl<b.lvl;
+  const st=lock?null:bossReset(b.id);
+  return `<div class="bch ${b.id===S.bossSel?'on':''} ${lock?'locked':''}" data-boss="${b.id}">
+    ${st&&st.dead?'<span class="dn">💀</span>':''}<div class="em">${b.e}</div>
+    <div class="nm">${lock?'🔒'+b.lvl:b.n.split(' ')[0]}</div></div>`;}).join('');}
+function renderBoss(){renderBossRow();
+  const b=curBoss(),lock=S.lvl<b.lvl,st=lock?null:bossReset(b.id);
+  const max=bossMax(b),pct=st?clamp(st.hp/max*100,0,100):0;
   $('bosshp').style.width=pct+'%';
-  $('bosshptxt').textContent=S.boss.dead?'💀':fmt(S.boss.hp)+' / '+fmt(max);
+  $('bosshptxt').textContent=lock?t('loc_lock',b.lvl):st.dead?'💀':fmt(st.hp)+' / '+fmt(max);
   const ph=pct>66?0:pct>33?1:2;
-  [...$('bossphase').children].forEach((el,i)=>el.classList.toggle('on',i<=ph&&!S.boss.dead));
-  $('bossface').textContent=S.boss.dead?'💀':pct>66?'🦑':pct>33?'😡':'🤬';
-  $('bossname').textContent='🦑 Rug Puller';
-  $('attack').disabled=S.boss.dead;$('attack10').disabled=S.boss.dead;
-  $('attack').textContent=S.boss.dead?t('b_tomorrow'):t('b_attack');
+  [...$('bossphase').children].forEach((el,i)=>el.classList.toggle('on',!lock&&i<=ph&&!st.dead));
+  $('bossface').textContent=lock?'🔒':st.dead?'💀':pct>66?b.e:pct>33?'😡':'🤬';
+  $('bossname').textContent=b.e+' '+b.n;
+  $('attack').disabled=lock||st.dead;$('attack10').disabled=lock||st.dead;
+  $('attack').textContent=lock?t('loc_lock',b.lvl):st.dead?t('b_tomorrow'):t('b_attack');
   $('attack10').textContent=t('b_attack10');
-  $('bosshint').textContent=S.boss.dead?t('b_claimed'):(ph?t('b_hint2',ph+1):t('b_hint1'));
-  $('bossloot').innerHTML=`🪙 ${fmt(700+S.lvl*260)} · 💠 18 · 📈 ${140+S.lvl*45} xp · ${t('b_lootline')}`;
-  document.querySelector('nav button[data-go="fight"]').classList.toggle('dot',!S.boss.dead&&S.en>=8);}
-function hitBoss(times){bossReset();if(S.boss.dead)return;
+  $('bosshint').textContent=lock?t('loc_lock',b.lvl):st.dead?t('b_claimed'):
+    (ph?t('b_hint2',ph+1):`Weakness: ${b.weak}. Attack: ${b.style}.`);
+  const coinR=Math.round((700+S.lvl*260)*b.coinM),xpR=Math.round((140+S.lvl*45)*b.xpM);
+  $('bossloot').innerHTML=lock?t('loc_lock',b.lvl):`🪙 ${fmt(coinR)} · 💠 ${b.pts} · 📈 ${xpR} xp · ${t('b_lootline')}`;
+  document.querySelector('nav button[data-go="fight"]').classList.toggle('dot',!lock&&!st.dead&&S.en>=8);}
+function hitBoss(times){const b=curBoss();if(S.lvl<b.lvl)return;const st=bossReset(b.id);if(st.dead)return;
   if(!spend(8*times))return;
-  const st=stats();let total=0,crits=0;
-  for(let i=0;i<times;i++){if(S.boss.hp<=0)break;
-    const crit=Math.random()<(.05+st.luck*.01);
-    let d=st.atk*4*(.85+Math.random()*.3)*(crit?2:1);
+  const stt=stats();let total=0,crits=0;
+  for(let i=0;i<times;i++){if(st.hp<=0)break;
+    const crit=Math.random()<(.05+stt.luck*.01);
+    let d=stt.atk*4*(.85+Math.random()*.3)*(crit?2:1);
     if(buffOn('dmg'))d*=1.5;
+    d*=(1+perkVal('bossdmg')/100);
     d=Math.round(d);total+=d;if(crit)crits++;
-    S.boss.hp=Math.max(0,S.boss.hp-d);S.boss.hits++;misReset();S.mis.hit++;}
+    st.hp=Math.max(0,st.hp-d);st.hits++;misReset();S.mis.hit++;}
   const f=$('bossface');f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake');
   const w=f.parentElement;w.style.position='relative';
   const p=document.createElement('div');p.className='pop';p.textContent=(crits?'CRIT ':'')+'-'+fmt(total);
@@ -1027,52 +1238,106 @@ function hitBoss(times){bossReset();if(S.boss.dead)return;
   p.style.color=crits?'var(--gold)':'var(--pink)';
   w.appendChild(p);setTimeout(()=>p.remove(),1000);
   hap(crits?'heavy':'light');
-  if(S.boss.hp<=0&&!S.boss.dead){S.boss.dead=true;S.kills++;
-    const c=700+S.lvl*260;gain(c,18);addXp(140+S.lvl*45);
+  if(st.hp<=0&&!st.dead){st.dead=true;S.kills++;if(!S.bossSeen.includes(b.id))S.bossSeen.push(b.id);
+    const c=Math.round((700+S.lvl*260)*b.coinM),xp=Math.round((140+S.lvl*45)*b.xpM);
+    gain(c,b.pts);addXp(xp);
     const it=makeItem(stats().luck+6);addItem(it);notif('success');confetti(40);
     openModal(`<h2>${t('b_down')}</h2><div class="rays"><div class="em">💀</div></div>
-      <p class="muted" style="text-align:center">🪙 +${fmt(c)} · 💠 +18</p>${itemCard(it)}
+      <p class="muted" style="text-align:center">🪙 +${fmt(c)} · 💠 +${b.pts}</p>${itemCard(it)}
       <button class="btn green" onclick="closeModal()" style="margin-top:12px">${t('btn_flyon')}</button>`);}
   paint();}
 $('attack').onclick=()=>hitBoss(1);
 $('attack10').onclick=()=>hitBoss(10);
 
-/* ══════════ 9. sparring ══════════ */
-let sparring=false;
+/* ══════════ 9. sparring — turn-based duel ══════════ */
+let sparring=false,pendingAction=null;
 function logLine(txt,c){const l=$('log');const d=document.createElement('div');
   d.innerHTML=c?`<span style="color:${c}">${txt}</span>`:txt;l.appendChild(d);l.scrollTop=l.scrollHeight;}
+function chooseAction(a){if(pendingAction){const r=pendingAction;pendingAction=null;r(a);}}
+$('aAtk').onclick=()=>chooseAction('atk');
+$('aPow').onclick=()=>chooseAction('pow');
+$('aDef').onclick=()=>chooseAction('def');
+$('aUlt').onclick=()=>chooseAction('ult');
+function drawStam(v){const el=$('stamfill');el.style.width=clamp(v,0,100)+'%';el.classList.toggle('full',v>=100);}
+function setActs(v){$('aAtk').disabled=false;$('aPow').disabled=v<40;$('aDef').disabled=false;$('aUlt').disabled=v<100;}
 async function spar(){if(sparring)return;if(!spend(15))return;
-  sparring=true;$('spar').disabled=true;$('log').innerHTML='';
-  const st=stats();
-  const tier=CFG.foes[clamp(Math.floor(S.lvl/5),0,CFG.foes.length-1)];
-  const foe={n:tier.n,e:tier.e,atk:Math.round(st.atk*tier.p*(.9+Math.random()*.25)),
+  sparring=true;$('spar').style.display='none';$('log').innerHTML='';
+  $('stamwrap').style.display='block';$('actrow').style.display='grid';
+  const st=stats(),arenaMul=1+perkVal('arenadmg')/100;
+  const tier=CFG.foes[clamp(Math.floor(S.lvl/5)+ri(0,1),0,CFG.foes.length-1)];
+  const foe={n:tier.n,e:tier.e,tr:tier.tr,atk:Math.round(st.atk*tier.p*(.9+Math.random()*.25)),
     def:Math.round(st.def*tier.p*.8),hp:Math.round(st.hp*tier.p*(.9+Math.random()*.2))};
-  const foeMax=foe.hp;let myHp=st.hp;
+  const foeMax=foe.hp;let myHp=st.hp,myStam=40,shieldUsed=false;
   $('foeFace').textContent=foe.e;$('foeName').textContent=foe.n.toUpperCase();
   const draw=()=>{$('myhp').style.width=clamp(myHp/st.hp*100,0,100)+'%';
     $('foehp').style.width=clamp(foe.hp/foeMax*100,0,100)+'%';
     $('myhptxt').textContent=Math.max(0,Math.round(myHp))+' HP';
     $('foehptxt').textContent=Math.max(0,Math.round(foe.hp))+' HP';};
-  draw();logLine(t('spar_in',foe.n),'#FF2E97');await wait(500);
+  draw();drawStam(myStam);logLine(t('spar_in',foe.n),'#FF2E97');
+  if(foe.tr)logLine(t('trait_'+foe.tr),'#29E5D0');
+  await wait(500);
   let round=1;
-  while(myHp>0&&foe.hp>0&&round<=14){
-    const crit=Math.random()<(.05+st.luck*.012);
-    let d=st.atk*(.85+Math.random()*.3)*(1-foe.def/(foe.def+70))*(crit?2:1);
-    d=Math.max(1,Math.round(d));foe.hp-=d;draw();
-    logLine(t('spar_hit','<b>'+d+'</b>')+(crit?' 💥':''),'#7CFF3D');hap('light');await wait(430);
+  while(myHp>0&&foe.hp>0&&round<=20){
+    setActs(myStam);
+    const action=await new Promise(res=>{pendingAction=res;});
+    $('aAtk').disabled=$('aPow').disabled=$('aDef').disabled=$('aUlt').disabled=true;
+    let defending=false,riposteChance=0;
+    if(action==='atk'){
+      myStam=Math.min(100,myStam+18);
+      const crit=Math.random()<(.05+st.luck*.012);
+      let d=st.atk*arenaMul*(.85+Math.random()*.3)*(1-foe.def/(foe.def+70))*(crit?2:1);
+      d=Math.max(1,Math.round(d));
+      if(foe.tr==='shield'&&!shieldUsed){d=Math.round(d*.3);shieldUsed=true;logLine(t('trait_shield'),'#6CC8FF');}
+      foe.hp-=d;draw();logLine(t('spar_hit','<b>'+d+'</b>')+(crit?' 💥':''),'#7CFF3D');hap('light');
+    }else if(action==='pow'){
+      myStam=Math.max(0,myStam-40);
+      if(Math.random()<.82){
+        let d=st.atk*arenaMul*1.75*(.85+Math.random()*.3)*(1-(foe.def*.75)/((foe.def*.75)+70));
+        d=Math.max(1,Math.round(d));
+        if(foe.tr==='shield'&&!shieldUsed){d=Math.round(d*.3);shieldUsed=true;logLine(t('trait_shield'),'#6CC8FF');}
+        foe.hp-=d;draw();logLine(t('spar_hit','<b>💥'+d+'</b>'),'#FF2E97');hap('medium');
+      }else{logLine('· · ·','#888');hap('light');}
+    }else if(action==='def'){
+      defending=true;myStam=Math.min(100,myStam+26);riposteChance=.3;logLine('🛡️','#6CC8FF');
+    }else if(action==='ult'){
+      myStam=0;let d=Math.round(st.atk*arenaMul*2.6);
+      if(foe.tr==='shield'&&!shieldUsed){shieldUsed=true;logLine(t('trait_shield'),'#6CC8FF');}
+      foe.hp-=d;draw();logLine('<b>'+t('t_ultuse',d)+'</b>','#FFC53D');hap('heavy');notif('success');
+    }
+    draw();drawStam(myStam);await wait(380);
     if(foe.hp<=0)break;
-    let e=foe.atk*(.85+Math.random()*.3)*(1-st.def/(st.def+70));
-    e=Math.max(1,Math.round(e));myHp-=e;draw();
-    logLine(t('spar_back',foe.n,'<b>'+e+'</b>'),'#FF7AB8');await wait(430);round++;}
+    const hpPct=foe.hp/foeMax,w=hpPct<.3?{pow:.45,def:.15}:{pow:.25,def:.2};
+    const roll=Math.random();const facc=roll<w.pow?'pow':roll<w.pow+w.def?'def':'atk';
+    const berserkMul=foe.tr==='berserk'?1+(1-hpPct)*.6:1;
+    if(facc==='def'){
+      logLine(t('t_foedef',foe.n),'#888');
+    }else{
+      let e=foe.atk*berserkMul*(facc==='pow'?1.6:1)*(.85+Math.random()*.3)*(1-st.def/(st.def+70));
+      e=Math.max(1,Math.round(e));if(defending)e=Math.round(e*.35);
+      myHp-=e;draw();
+      logLine(t('spar_back',foe.n,'<b>'+e+'</b>')+(defending?' · '+t('t_block',e):''),'#FF7AB8');
+      if(foe.tr==='vamp'){const heal=Math.round(e*.3);foe.hp=Math.min(foeMax,foe.hp+heal);draw();logLine('🩸 +'+heal,'#FF6BB5');}
+      if(foe.tr==='swift'&&Math.random()<.35&&myHp>0){
+        let e2=Math.round(foe.atk*berserkMul*.5*(.85+Math.random()*.3)*(1-st.def/(st.def+70)));
+        if(defending)e2=Math.round(e2*.35);
+        myHp-=e2;draw();logLine(t('spar_back',foe.n,'<b>'+e2+'</b>'),'#FF7AB8');
+      }
+    }
+    if(defending&&Math.random()<riposteChance&&foe.hp>0){
+      const rd=Math.max(1,Math.round(st.atk*arenaMul*.45));
+      foe.hp-=rd;draw();logLine(t('t_riposte',rd),'#7CFF3D');
+    }
+    draw();await wait(380);round++;}
+  $('actrow').style.display='none';$('stamwrap').style.display='none';
   if(foe.hp<=0&&myHp>0){S.wins++;misReset();S.mis.win++;
     const c=Math.round(280+S.lvl*90),pts=2,r=ri(8,16);
     S.rating+=r;gain(c,pts);addXp(30+S.lvl*10);
     logLine('<b>'+t('spar_win',fmt(c),pts,r)+'</b>','#FFC53D');notif('success');confetti(16);
-    if(Math.random()<.22){const it=makeItem(stats().luck);addItem(it);logLine(t('spar_drop',it.n),'#7CFF3D');}
+    if(Math.random()<.22+perkVal('drop')/100){const it=makeItem(stats().luck);addItem(it);logLine(t('spar_drop',it.n),'#7CFF3D');}
   }else{S.losses++;const r=ri(4,9);S.rating=Math.max(800,S.rating-r);
     const c=Math.round(60+S.lvl*12);gain(c,0);
     logLine(t('spar_lose',r,fmt(c)),'#FF7AB8');notif('error');}
-  sparring=false;$('spar').disabled=false;$('spar').textContent=t('btn_find');paint();save();}
+  sparring=false;$('spar').style.display='block';$('spar').disabled=false;$('spar').textContent=t('btn_find');paint();save();}
 $('spar').onclick=spar;
 
 /* ══════════ 10. shop ══════════ */
@@ -1089,6 +1354,83 @@ function renderShop(){
       ${own?'<span class="own">'+(on?'✅':'✓')+'</span>':''}
       <div class="em">${s.e}</div><div class="nm">${s.n}</div>
       <div class="pr">${own?(on?t('drip_eq'):t('drip_tap')):(s.cur==='pts'?'💠 '+s.cost:'🪙 '+fmt(s.cost))}</div></div>`;}).join('');}
+
+/* ══════════ 10b. pelicans (companions) ══════════ */
+const pelOwned=id=>S.peli.find(p=>p.id===id);
+function renderPeliShop(){
+  $('eggs').innerHTML=CFG.eggs.map(e=>{const cur=e.cur==='pts'?S.pts:S.coins,can=cur>=e.cost;
+    return `<div class="egg" data-egg="${e.id}"><div class="em">${e.i}</div><div class="nm">${e.n}</div>
+      <div class="pr">${t('btn_hatch',e.cur==='pts'?'💠 '+e.cost:'🪙 '+fmt(e.cost))}</div>
+      <div class="pity">${t('egg_pity',t('pr'+e.pityR),e.pity)}</div>
+      ${can?'':'<div class="pity" style="opacity:.9">'+t('t_notenough',e.cur==='pts'?t('cur_pts'):t('cur_coins'))+'</div>'}</div>`;}).join('');
+  const c=companion(),cd=pelDef(c);
+  $('peliactive').textContent=c&&cd?(cd.e+' '+cd.n+' · '+t('peli_active')):t('peli_none');
+  $('pelicount').textContent=S.peli.length+'/'+CFG.pelicans.length;
+  $('pelis').innerHTML=CFG.pelicans.map(d=>{const owned=pelOwned(d.id),R=CFG.pelicanRarity[d.r];
+    const active=owned&&S.pelEq===owned.u;
+    return `<div class="pk ${R.c} ${active?'on':''} ${!owned?'locked':''}" data-pel="${d.id}">
+      ${owned?'<span class="own">'+(active?'✅':'✓')+'</span>':''}
+      ${owned&&owned.lv?'<span class="lv">+'+owned.lv+'</span>':''}
+      <div class="em">${d.e}</div><div class="nm ${R.t}">${d.n}</div>
+      <div class="tier">${t(R.dk)}</div>
+      <div class="pr">${owned?(active?t('peli_active'):t('btn_equipc')):(d.buy.cur==='pts'?'💠 '+d.buy.cost:'🪙 '+fmt(d.buy.cost))}</div></div>`;}).join('');}
+function peliModal(d){
+  const owned=pelOwned(d.id),R=CFG.pelicanRarity[d.r],active=owned&&S.pelEq===owned.u,lv=owned?(owned.lv||0):0;
+  const perkV=d.perk.v*(1+lv*.08);
+  const lvCost=Math.round(260*(lv+1)*R.m),featherCost=(d.r+1)*(lv+1)*3;
+  const canLv=owned&&lv<10&&S.coins>=lvCost&&S.res.feather>=featherCost;
+  const buyCur=d.buy.cur==='pts'?S.pts:S.coins,canBuy=!owned&&buyCur>=d.buy.cost;
+  let body=`<h2 class="${R.t}">${d.e} ${d.n}</h2>
+    <p class="muted" style="text-align:center">${t(R.dk)}${owned?' · Lv '+lv:''}<br>
+    +${pelStat({id:d.id,lv},'atk')} ${t('c_atk')} · +${pelStat({id:d.id,lv},'def')} ${t('c_def')} · +${pelStat({id:d.id,lv},'luck')} 🍀<br>
+    ${t('perk_'+d.perk.t,Math.round(perkV))}</p>`;
+  if(owned){
+    body+=`<button class="btn green" id="pEq" style="margin-top:10px">${active?t('btn_unequipc'):t('btn_equipc')}</button>
+      <button class="btn" id="pLv" ${canLv?'':'disabled'}>${lv>=10?t('maxlvl'):t('btn_lvup',lv+1,fmt(lvCost),featherCost)}</button>
+      <button class="btn pale" onclick="closeModal()">${t('btn_close')}</button>`;
+  }else{
+    body+=`<button class="btn green" id="pBuy" ${canBuy?'':'disabled'} style="margin-top:10px">${t('btn_buy',d.buy.cur==='pts'?'💠 '+d.buy.cost:'🪙 '+fmt(d.buy.cost))}</button>
+      <button class="btn pale" onclick="closeModal()">${t('btn_close')}</button>`;
+  }
+  openModal(body);
+  if(owned){
+    $('pEq').onclick=()=>{S.pelEq=active?null:owned.u;closeModal();hap('medium');paint();};
+    $('pLv').onclick=()=>{if(!canLv)return;S.coins-=lvCost;S.res.feather-=featherCost;owned.lv=(owned.lv||0)+1;
+      misReset();S.mis.upg++;hap('heavy');closeModal();paint();};
+  }else{
+    $('pBuy').onclick=()=>{if(!canBuy)return;if(d.buy.cur==='pts')S.pts-=d.buy.cost;else S.coins-=d.buy.cost;
+      S.peli.push({u:S.pelUid++,id:d.id,lv:0});confetti(d.r>=4?30:14);hap('medium');toast(t('peli_new'));closeModal();paint();};
+  }}
+function rollEggTier(e){const tot=e.w.reduce((a,b)=>a+b,0);let x=Math.random()*tot;
+  for(let i=0;i<e.w.length;i++){if((x-=e.w[i])<=0)return e.tiers[i];}return e.tiers[e.tiers.length-1];}
+function openEgg(id){
+  const e=CFG.eggs.find(x=>x.id===id);if(!e)return;
+  const cur=e.cur==='pts'?S.pts:S.coins;
+  if(cur<e.cost){toast(t('t_notenough',e.cur==='pts'?t('cur_pts'):t('cur_coins')));return;}
+  if(e.cur==='pts')S.pts-=e.cost;else S.coins-=e.cost;
+  misReset();S.mis.egg++;
+  S.pity[id]=(S.pity[id]||0)+1;
+  let tier=rollEggTier(e);
+  if(S.pity[id]>=e.pity&&tier<e.pityR)tier=e.pityR;
+  if(tier>=e.pityR)S.pity[id]=0;
+  let pool=CFG.pelicans.filter(p=>p.r===tier);
+  if(!pool.length)pool=CFG.pelicans.filter(p=>p.r===e.tiers[0]);
+  const d=pool[ri(0,pool.length-1)],owned=pelOwned(d.id),R=CFG.pelicanRarity[d.r];
+  hap('medium');
+  if(owned){
+    const featherGain=(d.r+1)*8+5;S.res.feather=(S.res.feather||0)+featherGain;
+    notif('success');confetti(d.r>=4?20:10);
+    openModal(`<h2 class="${R.t}">${d.e} ${d.n}</h2><div class="rays"><div class="em">${e.i}</div></div>
+      <p class="muted" style="text-align:center">${t(R.dk)}<br>${t('peli_dup',featherGain)}</p>
+      <button class="btn green" onclick="closeModal()" style="margin-top:12px">${t('btn_close')}</button>`);
+  }else{
+    S.peli.push({u:S.pelUid++,id:d.id,lv:0});
+    notif('success');confetti(d.r>=4?34:16);
+    openModal(`<h2 class="${R.t}">${d.e} ${d.n}</h2><div class="rays"><div class="em">${e.i}</div></div>
+      <p class="muted" style="text-align:center">${t(R.dk)}<br><b style="color:var(--neon)">${t('peli_new')}</b></p>
+      <button class="btn green" onclick="closeModal()" style="margin-top:12px">${t('btn_close')}</button>`);
+  }
+  paint();save();}
 
 /* ══════════ 11. clicks ══════════ */
 document.addEventListener('click',e=>{const el=e.target;
@@ -1118,7 +1460,7 @@ document.addEventListener('click',e=>{const el=e.target;
     if(b.cur==='pts')S.pts-=b.cost;else S.coins-=b.cost;
     if(b.id==='ref'){S.en=enMax();toast(t('t_refilled'));}
     else{S.buff[b.id]=Math.max(Date.now(),S.buff[b.id]||0)+b.mins*60000;toast(t('t_boostact',b.n));}
-    hap('medium');paint();return;}
+    misReset();S.mis.boost++;hap('medium');paint();return;}
   const sk=el.closest('[data-sk]');
   if(sk){const s=CFG.skins.find(x=>x.id===sk.dataset.sk);
     if(!S.own.includes(s.id)){const cur=s.cur==='pts'?S.pts:S.coins;
@@ -1126,6 +1468,14 @@ document.addEventListener('click',e=>{const el=e.target;
       if(s.cur==='pts')S.pts-=s.cost;else S.coins-=s.cost;
       S.own.push(s.id);confetti(14);toast(t('t_unlocked',s.n));}
     S.skin[s.s]=S.skin[s.s]===s.id?null:s.id;hap('medium');drawPel();paint();return;}
+  const bch=el.closest('[data-boss]');
+  if(bch){const b=CFG.bosses.find(x=>x.id===bch.dataset.boss);
+    if(!b||S.lvl<b.lvl){if(b)toast(t('loc_lock',b.lvl));return;}
+    S.bossSel=b.id;hap();paint();return;}
+  const pk=el.closest('[data-pel]');
+  if(pk){const d=CFG.pelicans.find(x=>x.id===pk.dataset.pel);if(d)peliModal(d);return;}
+  const eg=el.closest('[data-egg]');
+  if(eg){openEgg(eg.dataset.egg);return;}
   const lg=el.closest('[data-lg]');
   if(lg){setLang(lg.dataset.lg);hap('medium');closeModal();openSettings();return;}});
 
@@ -1182,7 +1532,7 @@ function paintRun(){const c=$('runcard');
   b.textContent=left>0?t('run_back',Math.ceil(left/1000)):t('run_collect');
   document.querySelector('nav button[data-go="farm"]').classList.toggle('dot',left<=0);}
 function paint(){paintTop();paintEnergy();paintRun();
-  renderMis();renderAch();renderHQ();renderUp();renderLocs();renderBag();renderBoss();renderShop();
+  renderMis();renderAch();renderHQ();renderUp();renderLocs();renderBag();renderBoss();renderShop();renderPeliShop();
   $('arenarec').textContent=t('rating',S.rating,S.wins,S.losses);
   $('spar').textContent=t('btn_find');
   $('meName').textContent=(TG&&TG.initDataUnsafe&&TG.initDataUnsafe.user&&TG.initDataUnsafe.user.first_name)?TG.initDataUnsafe.user.first_name.toUpperCase():t('you');
@@ -1203,10 +1553,10 @@ load(()=>{
   drawPel();paint();
   const{h,out}=hqPending();
   setTimeout(()=>{$('splash').classList.add('gone');
-    if(h>.25&&Math.floor(out.coins)>0){
+    if(h>.25&&Object.values(out).some(v=>v>=1)){
       openModal(`<h2>${t('off_title')}</h2><div class="rays"><div class="em">🏚️</div></div>
         <p class="muted" style="text-align:center">${t('off_note',h.toFixed(1))}<br>
-        🪙 ${fmt(out.coins)}${out.fish>=1?' · 🐟 '+Math.floor(out.fish):''}${out.scrap>=1?' · ⚙️ '+Math.floor(out.scrap):''}</p>
+        ${hqSummary(out)}</p>
         <button class="btn green" id="cn" style="margin-top:12px">${t('hq_collect')}</button>`);
       $('cn').onclick=()=>{$('collectNest').click();closeModal();setTimeout(checkDaily,300);};
     }else setTimeout(checkDaily,400);},1500);
